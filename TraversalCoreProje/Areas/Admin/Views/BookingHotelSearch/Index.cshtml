@@ -3,47 +3,50 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
     int count = 0;
-    double score=0;
+    double score = 0;
 }
 
-<br />
-<h3>Arama Yapılan Şehir: Paris/Fransa</h3>
-<table class="table table-striped">
-    <tr>
-        <th>#</th>
-        <th>Otel Adı</th>
-        <th>Otel Puanı</th>
-        <th>Otel Değerlendirmesi</th>
-        <th>Detaylar</th>
-    </tr>
+<div class="card">
+    <h5 class="card-header">Arama Yapılan Şehir: Paris/Fransa</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <tr>
+                <th>#</th>
+                <th>Otel Adı</th>
+                <th>Otel Puanı</th>
+                <th>Otel Değerlendirmesi</th>
+                <th>Detaylar</th>
+            </tr>
 
-    @foreach (var item in Model)
-    {
-        count++;
-        <tr>
-            <td>@count</td>
-            <td>@item.hotel_name</td>
-            @{ score = double.Parse(item.review_score.ToString()) / 10;}
-            <td>@score</td>
-            @{
-                if (item.review_score_word == "Superb")
-                {
-                    <td>Muhteşem</td>
-                }
-                if (item.review_score_word == "Very good")
-                {
-                    <td>Çok İyi</td>
-                }
-                if (item.review_score_word == "Good")
-                {
-                    <td>İyi</td>
-                }
-                if (item.review_score_word == "Fabulous")
-                {
-                    <td>Harika</td>
-                }
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>
+                    <td>@item.hotel_name</td>
+                    @{ score = double.Parse(item.review_score.ToString()) / 10;}
+                    <td>@score</td>
+                    @{
+                        if (item.review_score_word == "Superb")
+                        {
+                            <td><span class="badge bg-label-danger me-10">Muhteşem</span></td>
+                        }
+                        if (item.review_score_word == "Very good")
+                        {
+                            <td><span class="badge bg-label-primary me-10">Çok İyi</span></td>
+                        }
+                        if (item.review_score_word == "Good")
+                        {
+                            <td><span class="badge bg-label-warning me-10">İyi</span></td>
+                        }
+                        if (item.review_score_word == "Fabulous")
+                        {
+                            <td><span class="badge bg-label-success me-10">Harika</span></td>
+                        }
+                    }
+                    <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
+                </tr>
             }
-            <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
-        </tr>
-    }
-</table>
+        </table>
+    </div>
+</div>
