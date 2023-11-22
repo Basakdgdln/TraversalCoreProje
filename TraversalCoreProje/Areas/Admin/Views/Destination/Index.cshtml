@@ -1,0 +1,52 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <h5 class="card-header">Tur Rotaları Listesi</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <tr>
+                <th></th>
+                <th>Şehir</th>
+                <th>Gün/Gece</th>
+                <th>Fiyat</th>
+                <th>Kontenjan</th>
+                <th>Tarih</th>
+                <th>Sitede Gör</th>
+                <th></th>
+            </tr>
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td><i class="bx bxs-right-arrow-alt "></i></td>
+                    <td>@x.City</td>
+                    <td><span class="badge bg-label-success me-10">@x.DayNight</span></td>
+                    <td><span class="badge bg-label-primary me-10">@x.Price$</span></td>
+                    <td><span class="badge bg-label-danger me-10">@x.Capacity kişi</span></td>
+                    <td><span class="badge bg-label-info me-10">@x.Date</span></td>
+                    <td><a href="/TraversalStories/TravelStories/@x.DestinationID" class="btn btn-warning">Sitede Gör</a> </td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/Admin/Destination/DeleteDestination/@x.DestinationID"
+                                   onclick="return confirm('Gerçekten silmek istediğinize emin misiniz?')"><i class="bx bx-edit-alt me-1"></i> Sil</a>
+                                <a class="dropdown-item" href="/Admin/Destination/UpdateDestination/@x.DestinationID"><i class="bx bx-trash me-1"></i> Güncelle</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<br />
+<a href="/Admin/Destination/AddDestination" class="btn btn-primary" style="height:40px; width:250px;">Yeni Tur Rotası</a>
+

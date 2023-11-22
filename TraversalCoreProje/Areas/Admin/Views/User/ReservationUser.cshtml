@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "ReservationUser";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (ViewBag.v > 0)
+{
+    <div class="card">
+        <h5 class="card-header">Misafir Seyahat Geçmişi</h5>
+        <div class="table-responsive text-nowrap">
+            <table class="table table-hover">
+                <tr>
+                    <th></th>
+                    <th>Misafir Ad Soyad</th>
+                    <th>Rota</th>
+                    <th>Kontenjan</th>
+                    <th>Tarih</th>
+                    <th>Durum</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><i class="bx bxs-right-arrow-alt "></i></td>
+                        <td>@item.AppUser.Name @item.AppUser.Surname</td>
+                        <td><span class="badge bg-label-success me-10">@item.Destination.City</span></td>
+                        <td><span class="badge bg-label-primary me-10">@item.PersonCount kişi</span></td>
+                        <td><span class="badge bg-label-danger me-10">@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</span></td>
+                        <td><span class="badge bg-label-warning me-10">@item.Status</span></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div class="col-md mb-lg-5 mb-md-0">
+        <div class="alert alert-danger" role="alert" style="height:70px"> Bu kullanıcıya ait seyahat geçmiş bilgisi bulunamamaktadır... </div>
+    </div>
+}

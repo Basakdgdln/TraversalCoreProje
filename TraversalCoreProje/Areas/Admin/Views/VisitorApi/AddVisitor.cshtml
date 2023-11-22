@@ -1,0 +1,20 @@
+﻿@model VisitorViewModel
+@{
+    ViewData["Title"] = "AddVisitor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <input type="text" asp-for="Name" class="form-control" placeholder="Ziyaretçi ad bilgisi giriniz..." />
+    <br />
+    <input type="text" asp-for="Surname" class="form-control" placeholder="Ziyaretçi soyadı bilgisi giriniz..." />
+    <br />
+    <input type="text" asp-for="Mail" class="form-control" placeholder="Ziyaretçi mail bilgisi giriniz..." />
+    <br />
+    <input type="text" asp-for="City" class="form-control" placeholder="Ziyaretçi şehir bilgisi giriniz..." />
+    <br />
+    <input type="text" asp-for="Country" class="form-control" placeholder="Ziyaretçi ülke bilgisi giriniz..." />
+        <br />
+    <button class="btn btn-primary" style="float:right">Yeni Ziyaretçi Ekle</button>
+    <br />
+</form>

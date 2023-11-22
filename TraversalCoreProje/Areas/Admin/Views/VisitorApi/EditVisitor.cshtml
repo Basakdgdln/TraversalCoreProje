@@ -1,0 +1,27 @@
+﻿@model VisitorViewModel
+@{
+    ViewData["Title"] = "EditVisitor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    @Html.HiddenFor(x => x.VisitorID)
+
+    <label>Ziyareçi Adı</label>
+    <input type="text" asp-for="Name" class="form-control" placeholder="Ziyaretçi ad bilgisi giriniz..." />
+
+    <label style="margin-top:10px">Ziyaretçi Soyadı</label>
+    <input type="text" asp-for="Surname" class="form-control" placeholder="Ziyaretçi soyaad bilgisi giriniz..." />
+
+    <label style="margin-top:10px">Ziyaretçi Mail Adresi</label>
+    <input type="text" asp-for="Mail" class="form-control" placeholder="Ziyaretçi mail bilgisi giriniz..." />
+
+    <label style="margin-top:10px">Ziyaretçi Şehri</label>
+    <input type="text" asp-for="City" class="form-control" placeholder="Ziyaretçi şehir bilgisi giriniz..." />
+
+    <label style="margin-top:10px">Ziyaretçi Ülkesi</label>
+    <input type="text" asp-for="Country" class="form-control" placeholder="Ziyaretçi ülke bilgisi giriniz..." />
+    <br />
+    <button class="btn btn-outline-primary">Değişiklikleri Kaydet</button>
+</form>
+

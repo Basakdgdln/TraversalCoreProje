@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <h5 class="card-header">Kullanıcı Yorum Listesi</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Yorum</th>
+                    <th>Kullanıcı</th>
+                    <th>Rota</th>
+                    <th>Tarih</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+                <tr class="table-default">
+                    <td><i class="bx bxs-comment-dots me-2"></i> @item.Content</td>
+                    <td><i class="bx bxs-user-detail me-2"></i>@item.AppUser.Name @item.AppUser.Surname</td>
+                    @if (item.Destination.City == "Paris")
+                    {
+                        <td><span class="badge bg-label-danger me-1">@item.Destination.City</span></td>
+                    }
+                    @if (item.Destination.City == "Bangkok")
+                    {
+                        <td><span class="badge bg-label-primary me-1">@item.Destination.City</span></td>
+                    }
+                    @if (item.Destination.City == "Yunan Adaları")
+                    {
+                        <td><span class="badge bg-label-success me-1">@item.Destination.City</span></td>
+                    }
+
+                    @if (item.Destination.City == "Singapur")
+                    {
+                        <td><span class="badge bg-label-warning me-1">@item.Destination.City</span></td>
+                    }
+                    @if (item.Destination.City == "Londra")
+                    {
+                        <td><span class="badge bg-label-info me-1">@item.Destination.City</span></td>
+                    }
+                    <td><span class="badge bg-label-success me-1">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</span></td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/Admin/Comment/DeleteComment/@item.CommentID"
+                                   onclick="return confirm('Gerçekten silmek istediğinize emin misiniz?')"><i class="bx bx-edit-alt me-1"></i> Sil</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

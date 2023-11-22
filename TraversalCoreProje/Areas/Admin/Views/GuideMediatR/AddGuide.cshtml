@@ -1,0 +1,17 @@
+﻿@model CreateGuideCommand
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" class="form-group">
+    <input type="text" asp-for="Name" class="form-control" placeholder="Ad Soyad bilgisi giriniz..." />
+    <br />
+    <textarea class="form-control" asp-for="Description" rows="4" cols="10" placeholder="Açıklama bilgisi giriniz..."></textarea>
+    <br />
+    <button class="btn btn-primary" style="float:right">Değişiklikleri Kaydet</button>
+    <br />
+</form>
+
+
+

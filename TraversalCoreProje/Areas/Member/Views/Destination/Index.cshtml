@@ -1,0 +1,42 @@
+﻿@using EntityLayer.Concrete
+@model List<Destination>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-xl-4">
+                <div class="card h-100">
+                    <div class="card-header pb-0 p-3">
+                        <div class="row">
+                            <div class="col-md-8 d-flex align-items-center">
+                                <h6 class="mb-0">@item.City Seyahati</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+                        <img src="@item.Image" alt="" style="height:400px; width:445px; align-content:center" /> 
+                        <hr class="horizontal gray-light my-4">
+                        <ul class="list-group">
+                            <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Süre (Gün / Gece):</strong> &nbsp; @item.DayNight</li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Fiyat:</strong> &nbsp;@item.Price$</li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Tarih:</strong> &nbsp; @item.Date</li>
+                            <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Kontenjan :</strong> &nbsp; @item.Capacity kişi</li>
+                            <li class="list-group-item border-0 ps-0 pb-0">
+                                <a class="btn btn-warning" href="/Member/Reservation/NewReservation" style="width: 445px; height: 65px; padding-top: 25px ">Rezervasyon Yapmak İçin Tıkla </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+
+

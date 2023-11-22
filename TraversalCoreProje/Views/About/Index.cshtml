@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+
+<body>
+    <section class="w3l-about-breadcrumb text-left">
+        <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+            <div class="container py-2">
+                <h2 class="title">Hakkımızda</h2>
+                <ul class="breadcrumbs-custom-path mt-2">
+                    <li><a href="#url">Ana Sayfa</a></li>
+                    <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Hakkımızda </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="w3l-cta4 py-5">
+        <div class="container py-lg-5">
+            <div class="ab-section text-center">
+                <h3 class="hny-title">Dünyanın Her Yerinde Anılar Yaratmak İçin Seyahat Edin.</h3>
+                <p class="py-3 mb-3">
+                    " Dünyadaki yüzbin şehrin her birinde güneş benzersiz şekilde batıyor. Sadece bir defa buna şahit olmak için seyahat etmeye değer. "
+                </p>
+                <a href="/Destination/Index" class="btn btn-style btn-primary">Şimdi Başla</a>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12 mx-auto">
+                    <img src="~/Traversal-Liberty/assets/images/indir.jpg" class="img-fluid" alt="" style="width:1500px; height:600px">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @await Component.InvokeAsync("_SubAboutt2")
+
+    @await Component.InvokeAsync("_Last3DestinationAbout")
+
+    @await Component.InvokeAsync("_StatisticsAbout")
+
+    @await Component.InvokeAsync("_GuideListAbout")
+
+</body>
+
+

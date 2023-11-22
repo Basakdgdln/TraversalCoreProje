@@ -1,0 +1,93 @@
+﻿@model Guide
+@{
+    ViewData["Title"] = "EditGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0"></h5>
+            <small class="text-muted float-end"></small>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <input  type="hidden" asp-for="@Model.GuideID"/>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-name">Ad Soyad</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" asp-for="Name" id="basic-default-name" placeholder="Ad soyad bilgisi giriniz..." />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-company"> Görsel url</label>
+                    <div class="col-sm-10">
+                        <input type="text"
+                               class="form-control"
+                               asp-for="Image"
+                               id="basic-default-company"
+                               placeholder="Görsel url bilgisi giriniz..." />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-email">Instagram URL</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <input type="text"
+                                   id="basic-default-email"
+                                   class="form-control"
+                                   placeholder="Instagram url değerini giriniz..."
+                                   asp-for="InstagramUrl" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-email">Twitter url</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <input type="text"
+                                   id="basic-default-email"
+                                   class="form-control"
+                                   placeholder="Twitter url değerini giriniz..."
+                                   asp-for="TwitterUrl" />
+                            <span class="input-group-text" id="basic-default-email2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-message">Rota Bilgisi </label>
+                    <div class="col-sm-10">
+                        <textarea id="basic-default-message"
+                                  class="form-control"
+                                  placeholder="Rota bilgisini giriniz..."
+                                  aria-label="Rota bilgisini giriniz..."
+                                  asp-for="Description"
+                                  aria-describedby="basic-icon-default-message2"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-default-message"> Eklemek istedikleriniz</label>
+                    <div class="col-sm-10">
+                        <textarea id="basic-default-message"
+                                  class="form-control"
+                                  placeholder="Varsa eklemek istedikleriniz..."
+                                  aria-label="Varsa eklemek istedikleriniz..."
+                                  asp-for="Description2"
+                                  aria-describedby="basic-icon-default-message2"></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-warning" style="height:50px; width:240px; float:right"
+                              onclick="return confirm('Değişiklikler başarılı bir şekilde kaydedildi...')"  >Değişiklikleri Kaydet</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

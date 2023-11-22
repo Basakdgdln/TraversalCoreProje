@@ -1,0 +1,50 @@
+﻿@using EntityLayer.Concrete
+@model List<Reservation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <h5 class="card-header">Tur Rotaları Listesi</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <tr>
+                <th></th>
+                <th>Kullanıcı Ad Soyad</th>
+                <th>Rota</th>
+                <th>Rehber Ad Soyad</th>
+                <th>Kişi Sayısı</th>
+                <th>Seyahat Tarihi</th>
+                <th>Durum</th>
+                <th></th>
+            </tr>
+
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td><i class="bx bxs-right-arrow-alt"></i></td>
+                    <td>@x.AppUser.Name @x.AppUser.Surname</td>
+                    <td>@x.Destination.City</td>
+                    <td>@x.Guide.Name</td>
+                    <td><span class="badge bg-label-warning me-10">@x.PersonCount kişi</span></td>
+                    <td><span class="badge bg-label-secondary me-10">@x.ReservationDate</span></td>
+                    @if (x.Status == "Onay Bekliyor")
+                    {
+                        <td><span class="badge bg-label-primary me-10">@x.Status</span> </td>
+                    }
+                    @if (x.Status == "Onaylandı")
+                    {
+                        <td><span class="badge bg-label-success me-10">@x.Status</span> </td>
+                    }
+                    @if(x.Status == "Reddedildi")
+                    {
+                        <td><span class="badge bg-label-danger me-10">@x.Status</span> </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

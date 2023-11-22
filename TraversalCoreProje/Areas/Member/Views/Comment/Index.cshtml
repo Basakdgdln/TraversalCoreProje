@@ -1,0 +1,90 @@
+﻿@using EntityLayer.Concrete
+@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('/soft-ui-dashboard/assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
+        <span class="mask bg-gradient-primary opacity-6"></span>
+    </div>
+    <div class="card card-body blur shadow-blur mx-4 mt-n6 overflow-hidden">
+        <div class="row gx-4">
+            @if (ViewBag.count > 0)
+                {
+            <div class="container-fluid py-4">
+                <div class="row">
+                    <div class="col-12">
+                        <h6>Yorumlarım</h6>
+                        <p class="card-text px-0 pt-0 pb-2">
+                            Web sitemiz Traversal üzerinden yapmış olduğunuz
+                            yorumlara aşağıdan erişebilirsiniz.
+                        </p>
+                        <br />
+                        <div class="card-body px-0 pt-0 pb-">
+                            <div class="table-responsive p-0">
+                                <table class="table align-items-center mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">İçerik</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tarih</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Lokasyon</th>
+                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Durum</th>
+                                            <th class="text-secondary opacity-7"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var x in Model)
+                                        {
+                                        <tr>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">@x.Content</p>
+                                            </td>
+                                            <td class="align-middle">
+                                                <span class="text-secondary text-xs font-weight-bold">@x.Date</span>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">@x.Destination.City</p>
+                                            </td>
+                                            @if (x.State == true)
+                                            {
+                                                <td class="align-middle text-center text-sm">
+                                                    <span class="badge badge-sm bg-gradient-success">Yayınlandı</span>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                <td class="align-middle text-center text-sm">
+                                                    <span class="badge badge-sm bg-gradient-danger">Yayınlanmadı</span>
+                                                </td>
+                                            }
+
+                                        </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+
+            else
+                {
+            <div class="container-fluid py-4 text-center">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="text-danger">Tarafınıza ait seyahat yorum bilgisi bulunamamaktadır.</h5>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,24 @@
+﻿@model GetDestinationByIdQueryResult
+@{
+    ViewData["Title"] = "GetDestination";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<form method="post" class="form-group">
+    <input type="hidden" asp-for="DestinationId" />
+
+    <label>Rota</label>
+    <input type="text" asp-for="City" class="form-control" placeholder="Rota bilgisi giriniz..." />
+
+    <label style="margin-top:10px">Süre (gün / gece)</label>
+    <input type="text" asp-for="DayNight" class="form-control" placeholder="Süre bilgisi giriniz (kaç gün - kaç gece )" />
+
+    <label style="margin-top:10px">Fiyat (TL)</label>
+    <input type="text" asp-for="Price" class="form-control" placeholder="Fiyat değerini giriniz..." />
+
+    <br />
+    <button class="btn btn-primary" style="float:right" onclick="alert('Rota bilgisi başarılı bir şekilde güncellendi');">Değişiklikleri Kaydet</button>
+    <br />
+</form>
+
